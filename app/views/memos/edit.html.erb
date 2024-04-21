@@ -1,11 +1,6 @@
 <h1>id: <%= @memo.id %> のメッセージ編集ページ</h1>
 
-<%= form_with(model: @memo) do |f| %>
-  <%= f.label :content, 'メッセージ' %>
-  <%= f.text_field :content %>
-
-  <%= f.submit '投稿' %>
-<% end %>
+<%= render 'form', memo: @memo %>
 
 <%= link_to 'このメッセージを削除する', @memo, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
 <%= link_to '一覧に戻る', memos_path %>

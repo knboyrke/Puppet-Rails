@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
   before_action :require_user_logged_in
+  before_action :set_message, only: [:edit, :update, :destroy]
   
   def index
     @memos = Memo.all
@@ -21,12 +22,9 @@ class MemosController < ApplicationController
   end
 
   def edit
-    @memo = Memo.find(params[:id])
   end
 
   def update
-    @memo = memo.find(params[:id])
-
     if @memo.update(memo_params)
       redirect_to memos_path
     else
@@ -36,7 +34,6 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    @memo = Memo.find(params[:id])
     @memo.destroy
 
     flash[:success] = 'ノートを削除しました'
@@ -44,6 +41,10 @@ class MemosController < ApplicationController
   end
   
   private
+
+  def set_message
+    @memo = Memo.find(params[:id])
+  end
 
   # Strong Parameter
   def memo_params
