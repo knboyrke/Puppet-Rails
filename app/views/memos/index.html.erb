@@ -2,7 +2,7 @@
 
 <ul>
   <% @memos.each do |memo| %>
-    <li><%= link_to memo.id, memo %> : <%= memo.content %></li>
+    <li><%= link_to memo.id, memo %> : <%= memo.title %> &gt; <%= memo.content %></li>
   <% end %>
 </ul>
 
