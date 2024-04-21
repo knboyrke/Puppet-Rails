@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     email = params[:session][:email].downcase
     password = params[:session][:password]
     if login(email, password)
-      redirect_to @user
+      redirect_to memos_path
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render :new
