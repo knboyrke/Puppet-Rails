@@ -1,4 +1,14 @@
 <%= form_with(model: memo) do |f| %>
+  <% if memo.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% memo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.label :content, 'メッセージ' %>
   <%= f.text_field :content %>
 
