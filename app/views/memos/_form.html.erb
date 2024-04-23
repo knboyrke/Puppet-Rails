@@ -9,11 +9,32 @@
     </div>
   <% end %>
   
-  <%= f.label :title, 'タイトル' %>
-  <%= f.text_field :title %>
+  <div id="memo_title">
+    <%= f.label :title, 'タイトル', id: 'titleText', class: 'titleArea' %>
+    <%= f.text_field :title, id: 'titleBox', class: 'titleArea', spellcheck: 'false', placeholder: 'タイトルを入力してください' %>
+  </div>
+  
+  <div id="memo_content">
+    <div id="quill-editor" spellcheck="false"></div>
+    <%= f.hidden_field :content, id: 'memo_content_field' %>
+  </div>
+  
 
-  <%= f.label :content, 'メッセージ' %>
-  <%= f.text_field :content %>
-
-  <%= f.submit '投稿' %>
+  <%= f.submit '保存', id: 'save' %>
 <% end %>
+
+
+<script>
+  // Quillテキストエディタを生成する
+  let quill = new Quill('#quill-editor', {
+    theme: 'bubble'
+  });
+  
+  // Quillの内容が変更されたときに、f.text_fieldの値を更新する
+  quill.on('text-change', function() {
+    var quillContent = quill.root.innerHTML;
+    document.getElementById('memo_content_field').value = quillContent;
+  });
+  
+  quill.root.innerHTML = '<%= @memo.content.html_safe if @memo.content.present? %>';
+</script>

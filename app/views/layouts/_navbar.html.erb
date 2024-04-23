@@ -1,28 +1,49 @@
 <header class="mb-4">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm bg-white">
     <div class="container-fluid ps-5 pe-5">
-      <a class="navbar-brand" href="/">Microposts</a>
+      <% if logged_in? %>
+        <%= link_to memos_path do %>
+          <%= image_tag 'Puppet_Logo.png', id: "img_logo", alt: "Logo", width: "132", height: "60" %>
+        <% end %>
+      <% else %>
+        <%= link_to root_url do %>
+          <%= image_tag 'Puppet_Logo.png', id: "img_logo", alt: "Logo", width: "132", height: "60" %>
+        <% end %>
+      <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <% if logged_in? %>
-          <div class="btn-group">
-            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.name %></button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user), class: 'nav-link' %></li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
+        
+          <% if logged_in? %>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <%= link_to memos_path, class: 'nav-link active', 'aria-current': 'page' do %>
+                  <i class="bi bi-journal-text"></i> memos
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_memo_path, class: 'nav-link' do %>
+                  <i class="bi bi-file-earmark-plus"></i> New
+                <% end %>
+              </li>
             </ul>
-          </div>
-        <% else %>
-          <ul class="navbar-nav">
-            <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
-            <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
-          </ul>
-        <% end %>
-      </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.name %></button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                  <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user), class: 'nav-link' %></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
+                </ul>
+            </div>
+          <% else %>
+            <ul class="navbar-nav">
+              <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
+              <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
+            </ul>
+          <% end %>
+        </div>
     </div>
   </nav>
 </header>

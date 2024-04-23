@@ -1,15 +1,87 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(#e1e1e1 10%, #ffffff 15%);
+  background-size: 10px 10px;
+}
+
+
+/***** nav * start *****/
+
+img {
+  -webkit-user-drag: none;
+}
+
+nav{
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-item{
+  font-size: 20px;
+  margin-left: 80px;
+  font-weight: bold;
+}
+
+.nav-item a{
+  color: black;
+}
+
+.nav-item a.active{
+  color: #00CC98;
+}
+
+.nav-item a:hover{
+  color: #00CC98;
+}
+
+.nav-link i{
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+
+/***** nav * end *****/
+
+
+/***** user table * start *****/
+
+
+table tr{
+	border-bottom: 1px solid #ccc;
+}
+
+table td, table th{
+	padding: 1em 1em;
+	font-size: 20px;
+}
+
+
+/***** user table * end *****/
+
+/***** form * start *****/
+
+#memo_title{
+	width: 100%;
+	margin: 20px auto;
+}
+
+#memo_title #titleBox{
+	width: 100%;
+	padding: .8em;
+	background-color: transparent;
+	border: 0;
+	border-bottom: solid 1px #1abc9c;
+	background: linear-gradient(to bottom, transparent 92%, #1abc9c 8%) no-repeat;
+	background-position: -750px 0;
+  background-size: 750px 100%;
+  font-size: 1.1rem;
+	transition: all ease-in-out 0.3s;
+}
+
+#titleBox:focus, #titleBox:not(:placeholder-shown){
+  background-position: 0 0;
+  outline: none;
+}
+
+/***** form * end *****/
