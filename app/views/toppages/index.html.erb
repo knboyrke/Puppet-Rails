@@ -1,7 +1,10 @@
 <div id="top_page">
   <div class="text-center">
-    <h1>ー ノートを迷わず見返す ー</h1>
-    <h2>Welcome to the Puppet</h2>
-    <%= link_to '新規会員登録へ', signup_path, class: 'btn btn-lg btn-primary' %>
+    <h1>ー <span class="mincho">ノートを<span id="keyword">迷わず</span>見返す</span> ー</h1>
+    <h2>Welcome to Puppet</h2>
+    <div class="btn_list">
+      <%= link_to 'Windows版 ダウンロード', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to '新規会員登録へ', signup_path, class: 'btn btn-lg btn-custom' %>
+    </div>
   </div>
 </div>

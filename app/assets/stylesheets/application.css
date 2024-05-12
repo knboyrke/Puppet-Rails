@@ -6,8 +6,18 @@ body{
   background-size: 10px 10px;
 }
 
+.container{
+  margin-top: 100px;
+}
 
 /***** nav * start *****/
+
+header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
 
 img {
   -webkit-user-drag: none;
@@ -59,6 +69,8 @@ table td, table th{
 
 /***** user table * end *****/
 
+
+
 /***** form * start *****/
 
 #memo_title{
@@ -85,3 +97,39 @@ table td, table th{
 }
 
 /***** form * end *****/
+
+
+/***** index.html * start *****/
+
+
+#top_page h1{
+  font-size: 35px;
+  margin: 20px;
+}
+
+#top_page h1 .mincho{
+  font-family: "ヒラギノ明朝 ProN W3", "HiraMinProN-W3", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+  font-size: 35px;
+  background: linear-gradient(transparent 80%, yellow 20%);
+  display: inline-block;
+}
+
+#top_page h1 #keyword{
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#top_page .btn-custom{
+  background-color: #00CC98;
+  color: #ffffff;
+  margin: 20px;
+}
+
+#top_page .btn_list{
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+
+
+/***** index.html * end *****/
+
+
